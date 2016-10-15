@@ -1,0 +1,122 @@
+@font-face {
+        font-family: Lucida Handwriting;
+        src: url("fonts/lucida-handwriting-italic.ttf");
+}
+
+@font-face {
+        font-family: Century Gothic;
+        src: url("fonts/century-gothic.ttf");
+}
+
+@font-face {
+        font-family: American Typewriter;
+        src: url("fonts/AmericanTypewriter.ttc");
+}
+
+body {
+        margin: 0px;
+        background-color: #6ea3df;
+        color: #ffffff;
+}
+
+.header {
+        padding: 1em;
+        width: 100%;
+        height: 2em;
+        background-color: #093e7d;
+}
+
+
+.center-block {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+}
+
+.button {
+        font-family: Century Gothic;
+        font-size: 1.5em;
+        color: #ffffff;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid #ffffff;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 300ms;
+}
+
+.button > * {
+        top: 50%;
+        transform: translate(0, -50%);
+}
+
+.button.hovering {
+        background-color: rgba(255, 255, 255, 0.5);
+}
+
+.tab {
+        cursor: pointer;
+        transition: margin 300ms;
+        width: 200px;
+        height: 100px;
+        position: fixed;
+}
+
+.tab.left {
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        margin-left: -50px;
+        left: 0px;
+}
+
+.tab.right {
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        margin-right: -50px;
+        right: 0px;
+}
+
+.tab.left img {
+        margin-left: 115px;
+        padding: 20px 0;
+}
+
+.tab.right img {
+        margin-left: 20px;
+        padding: 20px 0;
+}
+
+.tab.left.hovering {
+        margin-left: 0px;
+}
+
+.tab.right.hovering {
+        margin-right: 0px;
+}
+
+#dist {
+        background-color: rgba(0, 0, 0, 0);
+        border: 2px solid #ffffff;
+        border-radius: 8px;
+        font-family: American Typewriter;
+        color: #ffffff;
+        width: 1.5em;
+        font-size: 25pt;
+}
+
+h1 {
+        font-family: American Typewriter;
+}
+
+h2 {
+        font-family: Lucida Handwriting;
+}
+
+p {
+        font-family: American Typewriter;
+}
+
+a {
+        text-decoration: none;
+}
+
