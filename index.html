@@ -2,19 +2,26 @@
 <html>
         <head>
                 <title>Andrew O. Farm</title>
-                <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+                <meta charset="utf-8">
+                <link type="text/css" rel="stylesheet" href="style.css"/>
         </head>
         <body>
-                <div class="header">
-                        <h1>Andrew O. Farm</h1>
-                </div>
+                <div class="bg"></div>
+                <h1>
+                        <span class="fadeout">andrew </span>
+                        <div class="transition" id="abovewater"></div>
+                        <span class="fadeout"><span class="color">o</span>. farm</span>
+                </h1>
                 <div class="navbuttons">
+                        <ul style="margin-top: 240px">
+                                <li class = "nav" id="menuitem-developer">developer</li>
+                                <li class = "nav" id="menuitem-photographer">photographer</li>
+                        </ul>
                 </div>
-                <div class="bg development">
-                        <h4>PROJECTS</h4>
-                </div>
-                <div class="bg photography">
-                        <h4>WORKS</h4>
-                </div>
+                <img class="transition" id="belowwater" src="images/inkflow.gif"/>
+                <div class="transition" id="surface"></div>
         </body>
+        <script src="jquery-3.1.0.min.js"></script>
+        <script src="jquery.color.js"></script>
+        <script src="transition.js"></script>
 </html>

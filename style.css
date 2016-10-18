@@ -1,0 +1,124 @@
+@font-face {
+        font-family: Raleway Thin
+        src: url('fonts/Raleway-Thin.ttf') format('ttf');
+}
+
+/* General styles */
+
+body {
+        color: #000;
+        background-color: #fff;
+        font-family: Raleway Thin;
+        font-size: 30pt;
+        text-align: center;
+}
+
+.color {
+        color: #ff4400;
+}
+
+h1 {
+        font-size: 48pt;
+}
+
+p {
+        font-size: 18pt;
+}
+
+a {
+        color: #ff4400;
+        text-decoration: none;
+}
+
+a:hover {
+        text-decoration: underline;
+}
+
+.nav {
+        text-decoration: none;
+        color: #000;
+        display: inline-block;
+        position: relative;
+        padding-bottom: 1pt;
+}
+
+.nav:hover {
+        cursor: pointer;
+}
+
+.nav:after {
+        content: '';
+        display: block;
+        margin: auto;
+        height: 1pt;
+        width: 0pt;
+        background-color: transparent;
+        transition: 0.5s ease;
+}
+
+.nav:hover:after {
+        width: 100%;
+        background-color: #ff4400;
+}
+
+ul {
+        list-style: none;
+}
+
+li {
+        margin: 50px;
+}
+
+/* Special styles */
+
+/*.bg {*/
+/*        top: 0;*/
+/*        left: 0;*/
+/*        width: 100%;*/
+/*        height: 100%;*/
+/*        background-size: 100%;*/
+/*        position: fixed;*/
+/*        z-index: 0;*/
+/*        opacity: 0;*/
+/*        transition: 0.5s ease;*/
+/*}*/
+
+.bg-developer {
+        opacity: 0.5;
+        background-image: url('https://static.pexels.com/photos/70232/pexels-photo-70232.jpeg');
+}
+
+.bg-photographer {
+        opacity: 0.5;
+        background-image: url('images/Acacia Bunch.jpg/');
+}
+
+/* Landing page transition */
+
+.transition {
+        position: absolute;
+}
+
+#abovewater {
+        display: inline-block;
+        margin-top: 20pt;
+        margin-left: 2pt;
+        width: 24pt;
+        height: 26pt;
+        border-radius: 100%;
+        background-color: #ff4400;
+/*        background-color: rgba(0, 0, 0, 0.4);*/
+        opacity: 0;
+}
+
+#belowwater {
+        display: none;
+}
+
+#surface {
+        display: none;
+        height: 6px;
+        width: 0px;
+        opacity: 0;
+        background-color: #b0121a;
+}
