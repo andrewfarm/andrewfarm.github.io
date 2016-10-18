@@ -10,6 +10,13 @@ var init = function() {
                 href = "dev.html";
          }
         );
+        $("#menuitem-composer").click
+        (
+         function() {
+         transition(duration);
+         href = "music.html";
+         }
+         );
         $("#menuitem-photographer").click
         (
          function() {
