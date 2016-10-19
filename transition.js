@@ -50,7 +50,7 @@ function transition(duration) {
         (
          {marginTop: "250px", backgroundColor: "#b0121a"},
          {duration: duration * 2, easing: "drop", queue: true},
-//         "drop"
+         "drop"
         );
         $a.promise().done(function()
           {
