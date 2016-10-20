@@ -1,13 +1,4 @@
-@font-face {
-    font-family: Sansation;
-    src: url("fonts/Sansation_Bold.ttf");
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: Montserrat;
-    src: url("fonts/Montserrat-Regular.otf");
-}
+@import url('fonts.css');
 
 body {
     margin: 0;

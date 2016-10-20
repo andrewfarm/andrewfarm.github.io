@@ -1,0 +1,59 @@
+@font-face {
+        font-family: Raleway Thin;
+        src: url('fonts/Raleway-Thin.ttf');
+}
+
+@font-face {
+        font-family: Sansation;
+        src: url("fonts/Sansation_Bold.ttf");
+}
+
+@font-face {
+        font-family: Montserrat;
+        src: url("fonts/Montserrat-Regular.otf");
+}
+
+@font-face {
+        font-family: Comic Sans;
+        src: url("fonts/Comic Sans MS.ttf");
+}
+
+@font-face {
+        font-family: Catalina Script;
+        src: url('fonts/Lydia Puente).ttf');
+}
+
+@font-face {
+        font-family: Typo Round;
+        src: url('fonts/Typo_Round_Regular_Demo.otf');
+}
+
+@font-face {
+        font-family: Westminster;
+        src: url('fonts/Westminster.ttf');
+}
+
+@font-face {
+        font-family: Baskerville;
+        src: url('Baskerville.ttc');
+}
+
+@font-face {
+        font-family: Modern Edge;
+        src: url('fonts/ModernEdge.ttf');
+}
+
+@font-face {
+        font-family: Herculanum;
+        src: url('fonts/Herculanum.ttf');
+}
+
+@font-face {
+        font-family: Cubic;
+        src: url('fonts/cubic.ttf');
+}
+
+@font-face {
+        font-family: Matisse ITC;
+        src: url('fonts/Matisse_ITC.ttf');
+}

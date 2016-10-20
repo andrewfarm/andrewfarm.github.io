@@ -1,7 +1,4 @@
-@font-face {
-        font-family: Raleway Thin;
-        src: url('fonts/Raleway-Thin.ttf');
-}
+@import url('fonts.css');
 
 /* General styles */
 
@@ -33,6 +30,15 @@ p {
 
 a {
         color: #ff4400;
+        text-decoration: none;
+}
+
+h1 a {
+        color: #000;
+        text-decoration: none;
+}
+
+h1 a:hover {
         text-decoration: none;
 }
 
@@ -74,26 +80,19 @@ ul {
         list-style: none;
 }
 
-.fullwidth {
-        width: 100%;
-        clear: both;
-}
-
-.fullwidth * {
-        margin: 0;
-        padding: 0;
-}
-
 .orange {
         background: #ff4400;
+        color: #000;
 }
 
 .black {
         background: #000;
+        color: #fff;
 }
 
 .white {
         background: #fff;
+        color: #ff4400;
 }
 
 /* Special styles */
@@ -108,10 +107,12 @@ ul {
 }
 
 .projects div {
-        width: 300px;
+        width: 290px;
         height: 200px;
-        background: yellow;
+        background: #ff4400;
+        background-size: cover;
         margin: 10px;
+        border: 2px solid #ccc;
         border-radius: 10px;
         display: inline-block;
         float: left;
@@ -132,6 +133,25 @@ ul {
 
 .projects h6.show{
         right: 0;
+}
+
+.fullwidth {
+        width: 100%;
+        clear: both;
+        overflow: auto;
+}
+
+.fullwidth * {
+        margin: 0;
+        padding: 50px;
+}
+
+.fullwidth img {
+        width: 60%;
+}
+
+.project-logo {
+        font-size: 64pt;
 }
 
 /*.bg-developer {*/
