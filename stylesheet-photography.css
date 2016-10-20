@@ -40,22 +40,39 @@ body {
     background-clip: padding-box;
     border: 40px solid rgba(0, 0, 0, 0.5);
     text-align: center;
+    width: 200px;
+    height: 120px;
     transition: opacity 300ms;
 }
 
-.mousedover {
+.imagebutton:hover {
     opacity: 0.6;
 }
 
-#gallerybutton {
-    width: 200px;
-    height: 120px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    position: fixed;
-    top: 26em;
-    text-align: center;
+.imagebutton > * {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+}
+
+.nav {
+        position: fixed;
+        white-space: nowrap;
+        top: 24em;
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        float: center;
+}
+
+.nav, .nav li {
+        display: inline-block;
+}
+
+.nav li {
+        margin: 0px 50px 0px 50px;
+        text-align: center;
+        vertical-align: center;
 }
 
 h1 {

@@ -11,6 +11,7 @@ body {
         font-family: Raleway Thin;
         font-size: 18pt;
         text-align: center;
+        margin: 0px;
 }
 
 .color {
@@ -46,6 +47,7 @@ a:hover {
         display: inline-block;
         position: relative;
         padding-bottom: 1pt;
+        margin: 50px;
 }
 
 .nav:hover {
@@ -68,36 +70,79 @@ a:hover {
 }
 
 ul {
+        padding: 0;
         list-style: none;
 }
 
-li {
-        margin: 50px;
+.fullwidth {
+        width: 100%;
+        clear: both;
+}
+
+.fullwidth * {
+        margin: 0;
+        padding: 0;
+}
+
+.orange {
+        background: #ff4400;
+}
+
+.black {
+        background: #000;
+}
+
+.white {
+        background: #fff;
 }
 
 /* Special styles */
 
-/*.bg {*/
-/*        top: 0;*/
-/*        left: 0;*/
-/*        width: 100%;*/
-/*        height: 100%;*/
-/*        background-size: 100%;*/
-/*        position: fixed;*/
-/*        z-index: 0;*/
-/*        opacity: 0;*/
-/*        transition: 0.5s ease;*/
+.projects {
+        margin: auto;
+}
+
+.projects a {
+        text-decoration: none;
+        color: #000;
+}
+
+.projects div {
+        width: 300px;
+        height: 200px;
+        background: yellow;
+        margin: 10px;
+        border-radius: 10px;
+        display: inline-block;
+        float: left;
+        overflow: hidden;
+}
+
+.projects h6 {
+        position: relative;
+        right: -100%;
+        margin: 0px;
+        padding: 5px 10px 5px 10px;
+        text-align: right;
+        float: right;
+        background-color: #fff;
+        opacity: 0.7;
+        transition: 0.5s;
+}
+
+.projects h6.show{
+        right: 0;
+}
+
+/*.bg-developer {*/
+/*        opacity: 0.5;*/
+/*        background-image: url('https://static.pexels.com/photos/70232/pexels-photo-70232.jpeg');*/
 /*}*/
-
-.bg-developer {
-        opacity: 0.5;
-        background-image: url('https://static.pexels.com/photos/70232/pexels-photo-70232.jpeg');
-}
-
-.bg-photographer {
-        opacity: 0.5;
-        background-image: url('images/Acacia Bunch.jpg/');
-}
+/**/
+/*.bg-photographer {*/
+/*        opacity: 0.5;*/
+/*        background-image: url('images/Acacia Bunch.jpg/');*/
+/*}*/
 
 /* Landing page transition */
 
@@ -113,7 +158,6 @@ li {
         height: 26pt;
         border-radius: 100%;
         background-color: #ff4400;
-/*        background-color: rgba(0, 0, 0, 0.4);*/
         opacity: 0;
 }
 
