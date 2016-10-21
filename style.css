@@ -2,6 +2,10 @@
 
 /* General styles */
 
+:root {
+        --vermillion: #ff4400;
+}
+
 body {
         color: #000;
         background-color: #fff;
@@ -12,7 +16,7 @@ body {
 }
 
 .color {
-        color: #ff4400;
+        color: var(--vermillion);
 }
 
 h1 {
@@ -21,7 +25,11 @@ h1 {
 
 h2 {
         font-size: 30pt;
-        color: #ff4400;
+        color: var(--vermillion);
+}
+
+h6 {
+        font-size: 14pt;
 }
 
 p {
@@ -29,7 +37,7 @@ p {
 }
 
 a {
-        color: #ff4400;
+        color: var(--vermillion);
         text-decoration: none;
 }
 
@@ -72,7 +80,7 @@ a:hover {
 
 .nav:hover:after {
         width: 100%;
-        background-color: #ff4400;
+        background-color: var(--vermillion);
 }
 
 ul {
@@ -81,7 +89,7 @@ ul {
 }
 
 .orange {
-        background: #ff4400;
+        background: var(--vermillion);
         color: #000;
 }
 
@@ -92,7 +100,7 @@ ul {
 
 .white {
         background: #fff;
-        color: #ff4400;
+        color: var(--vermillion);
 }
 
 /* Special styles */
@@ -109,7 +117,7 @@ ul {
 .projects div {
         width: 290px;
         height: 200px;
-        background: #ff4400;
+        background: var(--vermillion);
         background-size: cover;
         margin: 10px;
         border: 2px solid #ccc;
@@ -141,17 +149,26 @@ ul {
         overflow: auto;
 }
 
-.fullwidth * {
-        margin: 0;
-        padding: 50px;
+.fullwidth > * {
+        margin: 50px;
+        padding: 0;
 }
 
 .fullwidth img {
         width: 60%;
+        margin: 0;
 }
 
 .project-logo {
         font-size: 64pt;
+}
+
+#edgedemo {
+        content: url('gallery/nature/Water Lily 4.jpg');
+}
+
+#edgedemo:hover {
+        content: url('images/projects/edge.jpg');
 }
 
 /*.bg-developer {*/
@@ -177,7 +194,7 @@ ul {
         width: 24pt;
         height: 26pt;
         border-radius: 100%;
-        background-color: #ff4400;
+        background-color: var(--vermillion);
         opacity: 0;
 }
 
