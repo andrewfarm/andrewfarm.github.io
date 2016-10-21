@@ -103,6 +103,10 @@ ul {
         color: var(--vermillion);
 }
 
+.orange a {
+        color: #fff;
+}
+
 /* Special styles */
 
 .projects {
@@ -118,13 +122,19 @@ ul {
         width: 290px;
         height: 200px;
         background: var(--vermillion);
-        background-size: cover;
+        background-size: auto 100%;
+        background-position: center;
         margin: 10px;
         border: 2px solid #ccc;
         border-radius: 10px;
         display: inline-block;
         float: left;
         overflow: hidden;
+        transition: background-size 0.33s
+}
+
+.projects div:hover {
+        background-size: auto 105%;
 }
 
 .projects h6 {
