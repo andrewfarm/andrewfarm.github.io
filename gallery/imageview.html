@@ -1,31 +1,11 @@
 <!DOCTYPE html>
 <html>
-        <style>
-                #view {
-                        position: absolute;
-                        max-width: 80%;
-                        max-height: 80%;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                }
-                
-                #closebutton {
-                        float: right;
-                        margin: 10px;
-                        cursor: pointer;
-                }
-                
-                #closebutton:hover {
-                        opacity: 0.6;
-                }
-                
-                p {
-                        text-align: center;
-                        font-style: italic;
-                }
-        </style>
+        <head>
+                <link type="text/css" rel="stylesheet" href="imageview.css"/>
+        </head>
         <img id="closebutton" src="close.png"/>
-        <img id="view" src="nature/A Change in the Weather.jpg"/>
-        <p></p>
+        <img id="view"/>
+        <p id="caption"></p>
+        <div class="img-nav" id="back"><h1>&lt;</h1></div>
+        <div class="img-nav" id="next"><h1>&gt;</h1></div>
 </html>
