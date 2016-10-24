@@ -1,0 +1,15 @@
+#navbuttons {
+        list-style: none;
+        float: right;
+}
+
+#navbuttons li {
+        display: inline;
+        margin: 5px;
+        top: 50%;
+        transform: translate(0, -50%);
+}
+
+a {
+        text-decoration: none;
+}
