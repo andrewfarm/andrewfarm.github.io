@@ -13,3 +13,20 @@
 a {
         text-decoration: none;
 }
+
+.tooltiptext {
+        position: absolute;
+        top: 110%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: 1;
+        visibility: hidden;
+        background: #000;
+        text-align: center;
+        padding: 5px;
+        box-shadow: 0 0 5px 0 #7f7f7f;
+}
+
+#navbuttons li:hover .tooltiptext {
+        visibility: visible;
+}
