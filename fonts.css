@@ -31,6 +31,11 @@
 }
 
 @font-face {
+        font-family: Andale Mono;
+        src: url("fonts/Andale Mono.ttf");
+}
+
+@font-face {
         font-family: Comic Sans;
         src: url("fonts/Comic Sans MS.ttf");
 }
