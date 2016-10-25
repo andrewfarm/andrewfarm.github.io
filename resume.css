@@ -1,0 +1,86 @@
+@import url('fonts.css');
+@import url('style.css');
+
+body {
+        text-align: left;
+        margin: 0 10%;
+}
+
+p {
+        font-size: 18pt;
+}
+
+li {
+        margin: 30px;
+}
+
+li#html {
+        list-style: initial;
+}
+
+li#html span {
+        font-family: inital;
+        font-size: 2em;
+        color: blue;
+        text-decoration: underline;
+}
+
+li#css {
+        list-style-image: url('images/arrow.png');
+}
+
+li#css div {
+        position: relative;
+        display: inline-block;
+}
+
+li#css span {
+        font-family: Sansation Bold, sans-serif;
+        font-size: 1.5em;
+        font-style: italic;
+        color: var(--vermillion);
+        padding: 10px;
+        background: #333;
+        border: 2px solid #eee;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #444;
+        transition: 0.3s;
+}
+
+li#css #csstext:hover {
+        color: #333;
+        background: #ccc;
+        border-color: #444;
+}
+
+li#css #csstooltiptext {
+        position: absolute;
+        visibility: hidden;
+        font-family: sans-serif;
+        font-size: 16px;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        box-shadow: none;
+        white-space: nowrap;
+        left: 120%;
+}
+
+li#css #csstooltiptext::after {
+        content: ' ';
+        position: absolute;
+        right: 100%;
+        top: 50%;
+        transform: translate(0, -50%);
+        border-width: 7px;
+        border-style: solid;
+        border-color: transparent #333 transparent transparent;
+}
+
+li#css #cssdiv:hover #csstooltiptext {
+        visibility: visible;
+}
+
+li#javascript {
+        
+}

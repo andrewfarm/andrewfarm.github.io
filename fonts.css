@@ -4,6 +4,16 @@
 }
 
 @font-face {
+        font-family: Raleway;
+        src: url('fonts/Raleway-Regular.ttf');
+}
+
+@font-face {
+        font-family: Raleway Black;
+        src: url('fonts/Raleway-Black.ttf');
+}
+
+@font-face {
         font-family: Sansation;
         src: url("fonts/Sansation_Bold.ttf");
 }
@@ -42,7 +52,12 @@
 
 @font-face {
         font-family: Baskerville;
-        src: url('Baskerville.ttc');
+        src: url('fonts/Baskerville.ttc');
+}
+
+@font-face {
+        font-family: Bodoni_72_Italic;
+        src: url('fonts/BodoniSvtyTwoITCTT-BookIta.ttf');
 }
 
 @font-face {
