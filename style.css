@@ -159,7 +159,7 @@ ul {
         background-size: auto 105%;
 }
 
-.projects h6 {
+.projects div h6 {
         position: relative;
         right: -100%;
         margin: 0px;
@@ -171,7 +171,7 @@ ul {
         transition: 0.5s;
 }
 
-.projects h6.show{
+.projects div:hover h6{
         right: 0;
 }
 
