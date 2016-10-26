@@ -7,21 +7,21 @@ var init = function() {
         (
          function() {
                 transition(duration);
-                href = "dev";
+                href = "dev.html";
          }
         );
         $("#menuitem-composer").click
         (
          function() {
          transition(duration);
-         href = "music";
+         href = "music.html";
          }
          );
         $("#menuitem-photographer").click
         (
          function() {
                 transition(duration);
-                href = "photography";
+                href = "photography.html";
          }
         );
 }
