@@ -16,6 +16,10 @@ p {
         font-size: 32pt;
 }
 
+.bold {
+        font-family: Raleway;
+}
+
 li {
         margin: 30px;
 }

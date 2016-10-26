@@ -15,8 +15,7 @@ function changeImage() {
     $currImg.fadeIn(2000);
     $($images[mod(index - 1, $images.length)]).css("z-index", 0);
     $($images[mod(index - 2, $images.length)]).hide();
-    $(".pageheader").css("z-index", 2);
-    $(".nav").css("z-index", 2);
+    $(".pageheader, .nav, p").css("z-index", 2);
 //    console.log("Image fading in", $currImg);
 //    for (var i = 0; i < 5; i++) {
 //        console.log("Image " + i + " z-index", $($images[i]).css("z-index"));
