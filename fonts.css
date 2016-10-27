@@ -15,29 +15,29 @@
 
 @font-face {
         font-family: Sansation;
-        src: url("fonts/Sansation_Bold.ttf");
+        src: url('fonts/Sansation_Bold.ttf');
 }
 
 @font-face {
         font-family: Montserrat;
-        src: url("fonts/Montserrat-Regular.otf");
+        src: url('fonts/Montserrat-Regular.otf');
         font-weight: normal;
 }
 
 @font-face {
         font-family: Montserrat;
-        src: url("fonts/Montserrat-ExtraBold.otf");
+        src: url('fonts/Montserrat-ExtraBold.otf');
         font-weight: bolder;
 }
 
 @font-face {
         font-family: Andale Mono;
-        src: url("fonts/Andale Mono.ttf");
+        src: url('fonts/Andale Mono.ttf');
 }
 
 @font-face {
         font-family: Comic Sans;
-        src: url("fonts/Comic Sans MS.ttf");
+        src: url('fonts/Comic Sans MS.ttf');
 }
 
 @font-face {
