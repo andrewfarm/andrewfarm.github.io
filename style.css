@@ -99,7 +99,7 @@ h1 a:hover {
         background-color: #000;
 }
 
-.anim-underline.white-underline:hover:after {
+.anim-underline.white-underline:hover:after, .orange .anim-underline:hover:after {
         position: relative;
         width: 100%;
         background-color: #fff;
@@ -177,6 +177,7 @@ ul {
 
 .fullwidth {
         width: 100%;
+        width: 100vw;
         clear: both;
         overflow: auto;
 }
@@ -184,6 +185,11 @@ ul {
 .fullwidth > * {
         margin: 50px;
         padding: 0;
+}
+
+.fullwidth.margin > * {
+        margin-left: 20%;
+        margin-right: 20%;
 }
 
 .fullwidth img {

@@ -1,0 +1,11 @@
+@import url('style.css');
+@import url('fonts.css');
+
+form {
+        font-family: Raleway;
+}
+
+form input, form textarea {
+        font-family: Raleway Thin;
+        font-size: 18pt;
+}
