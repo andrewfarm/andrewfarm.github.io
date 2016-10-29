@@ -140,40 +140,58 @@ ul {
         color: #000;
 }
 
-.projects div {
-        width: 290px;
-        height: 200px;
-        background: var(--vermillion);
-        background-size: auto 100%;
-        background-position: center;
-        margin: 10px;
-        border: 2px solid #ccc;
-        border-radius: 10px;
+.projects li {
         display: inline-block;
-        float: left;
-        overflow: hidden;
-        transition: background-size 0.33s
 }
 
-.projects div:hover {
-        background-size: auto 105%;
+.projects div {
+        display: inline-block;
+        margin: 20px;
+        width: 300px;
+        height: 300px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        vertical-align: middle;
 }
 
-.projects div h6 {
-        position: relative;
-        right: -100%;
-        margin: 0px;
-        padding: 5px 10px 5px 10px;
-        text-align: right;
-        float: right;
-        background-color: #fff;
-        opacity: 0.7;
-        transition: 0.5s;
+.projects img {
+        width: 100%;
+        margin: 0;
 }
 
-.projects div:hover h6 {
-        right: 0;
-}
+/*.projects div {*/
+/*        width: 290px;*/
+/*        height: 200px;*/
+/*        background: var(--vermillion);*/
+/*        background-size: auto 100%;*/
+/*        background-position: center;*/
+/*        margin: 10px;*/
+/*        border: 2px solid #ccc;*/
+/*        border-radius: 10px;*/
+/*        display: inline-block;*/
+/*        float: left;*/
+/*        overflow: hidden;*/
+/*        transition: background-size 0.33s*/
+/*}*/
+/**/
+/*.projects div:hover {*/
+/*        background-size: auto 105%;*/
+/*}*/
+/**/
+/*.projects div h6 {*/
+/*        position: relative;*/
+/*        right: -100%;*/
+/*        margin: 0px;*/
+/*        padding: 5px 10px 5px 10px;*/
+/*        text-align: right;*/
+/*        float: right;*/
+/*        background-color: #fff;*/
+/*        opacity: 0.7;*/
+/*        transition: 0.5s;*/
+/*}*/
+/**/
+/*.projects div:hover h6 {*/
+/*        right: 0;*/
+/*}*/
 
 .fullwidth {
         width: 100%;
@@ -208,14 +226,6 @@ ul {
 #project-descriptions > div:nth-child(even) img {float: left; clear: none;}
 
 #project-descriptions > div p:last-of-type {margin-bottom: 0;}
-
-#edgedemo {
-        content: url('gallery/nature/Water Lily 4.jpg');
-}
-
-#edgedemo:hover {
-        content: url('images/projects/edge.jpg');
-}
 
 /*.bg-developer {*/
 /*        opacity: 0.5;*/

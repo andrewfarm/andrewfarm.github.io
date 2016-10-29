@@ -46,7 +46,7 @@ var updateView = function() {
         currImg %= imgCount;
         var $img = $("#thumbnails").children().eq(currImg).children().first();
         var hdPath = getHDImagePath($img.attr("src"));
-        var caption = $img.attr("alt");
+        var caption = $img.attr("title");
         $("#view").attr("src", hdPath);
         $("#caption").html(caption);
 }
