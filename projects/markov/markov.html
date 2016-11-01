@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+        <body>
+                <h1>Markov Chains</h1>
+                <p>This JavaScript web app analyzes text and generates new text in a similar style. It uses Markov chains and is based on "<a href="https://en.wikipedia.org/wiki/A_Mathematical_Theory_of_Communication">A Mathematical Theory of Communication</a>" by Claude E. Shannon.</p>
+                <form onsubmit="markov.js doMarkov()">
+                        <p>
+                                Generate By:<br>
+                                <input type="radio" name="by" id="byLetters"/>
+                                <label for="byLetters">letters (creates gibberish words)</label><br>
+                                <input type="radio" name="by" id="byWords"/>
+                                <label for="byWords">words (uses real English words)</label>
+                        </p>
+                        <p>
+                                Degrees: (a greater degree generates a closer approximation)<br>
+                                <select>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                </select>
+                        </p>
+                        <p>
+                                Training text:<br>
+                                <textArea rows="20" cols="60" id="trainingtext"></textArea>
+                                <textArea rows="20" cols="60" id="output"></textArea>
+                        </p>
+                        <input type="submit" value="Generate"/>
+                        <input type="reset" value="Clear"/>
+                </form>
+        </body>
+</html>
