@@ -3,12 +3,12 @@
         <body>
                 <h1>Markov Chains</h1>
                 <p>This JavaScript web app analyzes text and generates new text in a similar style. It uses Markov chains and is based on "<a href="http://www.mast.queensu.ca/~math474/shannon1948.pdf">A Mathematical Theory of Communication</a>" by Claude E. Shannon.</p>
-                <form onsubmit="markov.js doMarkov()">
+                <form>
                         <p>
                                 Generate By:<br>
-                                <input type="radio" name="by" checked id="byLetters"/>
+                                <input type="radio" name="method" checked id="byLetters"/>
                                 <label for="byLetters">letters (creates gibberish words)</label><br>
-                                <input type="radio" name="by" id="byWords"/>
+                                <input type="radio" name="method" id="byWords"/>
                                 <label for="byWords">words (uses real English words)</label>
                         </p>
                         <p>
@@ -23,7 +23,7 @@
                         <p>
                                 Training text:<br>
                                 <textArea rows="20" cols="60" id="trainingtext"></textArea>
-                                <textArea rows="20" cols="60" id="output"></textArea>
+                                <textArea rows="20" cols="60" readonly id="output"></textArea>
                         </p>
                         <p>
                                 Output length:
