@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+        <body>
+                <h1>Markov Chains</h1>
+                <p>This JavaScript web app analyzes text and generates new text in a similar style. It uses Markov chains and is based on "<a href="http://www.mast.queensu.ca/~math474/shannon1948.pdf">A Mathematical Theory of Communication</a>" by Claude E. Shannon.</p>
+                <form>
+                        <p>
+                                Generate By:<br>
+                                <input type="radio" name="method" checked id="byLetters"/>
+                                <label for="byLetters">letters (creates gibberish words)</label><br>
+                                <input type="radio" name="method" id="byWords"/>
+                                <label for="byWords">words (uses real English words, usually takes longer)</label>
+                        </p>
+<!--                        <p>-->
+<!--                                Degrees: (a greater degree generates a closer approximation)<br>-->
+<!--                                <select id="degrees">-->
+<!--                                        <option>1</option>-->
+<!--                                        <option>2</option>-->
+<!--                                        <option>3</option>-->
+<!--                                        <option>4</option>-->
+<!--                                </select>-->
+<!--                        </p>-->
+                        <p>
+                                Training text:<br>
+                                <textArea rows="20" cols="60" id="trainingtext"></textArea>
+                                <textArea rows="20" cols="60" readonly id="output"></textArea>
+                        </p>
+                        <p>
+                                Output length:
+                                <input type="number" min="0" max="10000" style="width: 5em" value="500" id="length"/>
+                                words
+                        </p>
+                        <input type="button" value="Generate" id="generate"/>
+                        <input type="reset" value="Clear" id="clear"/>
+                </form>
+        </body>
+        <script src="../../jquery-3.1.0.min.js"></script>
+        <script type="text/javascript">
+                $(document).ready(function() {
+                        $.get("http://www.gutenberg.org/files/2701/2701.txt", function(data) {
+                              var startIndex = data.indexOf("Call me I");
+                              var endIndex = data.indexOf("orphan.") + "orphan.".length;
+                              var text = data.substring(startIndex, endIndex);
+                              $("#trainingtext").val(text);
+                        });
+                });
+        </script>
+        <script src="markov.js"></script>
+</html>
