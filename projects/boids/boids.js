@@ -36,6 +36,12 @@ function start() {
         //create simulation
         var world = new World(window.innerWidth, window.innerHeight, 10);
         render(world, c);
+        
+        //run simulation
+        window.setInterval(function() {
+                render(world, c);
+                step(world);
+        }, 50);
 }
 
 //Renders to the canvas
@@ -55,7 +61,42 @@ function render(world, c) {
 
 //Performs one step of the simulation
 function step(world) {
+        //calculate new velocities of boids
+        for (var i = 0; i < world.boids.length; i++) {
+                var boid = world.boids[i];
+                //apply the boids rules
+                var acc = separate(world, boid)
+                        .plus(align(world, boid))
+                        .plus(cohere(world, boid));
+                boid.vel = boid.vel.plus(acc);
+        }
+        
+        //move boids
+        for (var i = 0; i < world.boids.length; i++) {
+                var boid = world.boids[i];
+                boid.pos = boid.pos.plus(boid.vel);
+        }
+}
+
+//Boids rule 1: separation - keep distance from nearby boids
+//Returns an acceleration Vector
+function separate(world, boid) {
         //TODO
+        return new Vector(1, 1);
+}
+
+//Boids rule 2: alignment - steer towards average velocity of flockmates
+//Returns an acceleration Vector
+function align(world, boid) {
+        //TODO
+        return new Vector();
+}
+
+//Boids rule 3: cohesion - tend toward local center of flockmates
+//Returns an acceleration Vector
+function cohere(world, boid) {
+        //TODO
+        return new Vector();
 }
 
 //Constructor function for World class

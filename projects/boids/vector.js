@@ -6,26 +6,17 @@ function Vector(x, y) {
 
 //Returns the sum of this vector and another.
 Vector.prototype.plus = function(v) {
-        return {
-                x: this.x + v.x,
-                y: this.y + v.y
-        };
+        return new Vector(this.x + v.x, this.y + v.y);
 }
 
 //Returns the difference of this vector and another.
 Vector.prototype.minus = function(v) {
-        return {
-                x: this.x - v.x,
-                y: this.y - v.y
-        };
+        return new Vector(this.x - v.x, this.y - v.y);
 }
 
 //Returns a copy of this vector scaled by some amount.
 Vector.prototype.scaled = function(s) {
-        return {
-                x: this.x * s,
-                y: this.y * s
-        }
+        return new Vector(this.x * s, this.y * s);
 }
 
 //Returns the dot product of this vector and another.
