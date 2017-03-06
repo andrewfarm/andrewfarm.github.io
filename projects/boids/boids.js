@@ -1,7 +1,7 @@
-const FPS = 60;
+const FPS = 30;
 const INTERVAL = 1 / FPS;
 
-const BOID_VICINITY = 200;
+const BOID_VICINITY = 75;
 
 const SEPARATION_SCALE = 2;
 const SEPARATION_DISTANCE = 25;
@@ -11,7 +11,7 @@ const COHESION_SCALE = 20;
 const AVOIDANCE_SCALE = 1000000;
 const BOUNDING_SCALE = 100;
 
-const MAX_SPEED = 100;
+const MAX_SPEED = 75;
 const MAX_SPEED_SQUARED = MAX_SPEED * MAX_SPEED;
 
 const HEAD_RADIUS_TO_LENGTH_RATIO = 0.15;
@@ -71,6 +71,20 @@ function start() {
 function render(world, c) {
         //clear screen
         c.clearRect(0, 0, c.canvas.clientWidth, c.canvas.clientHeight);
+        
+        //experimental: draw lines between nearby boids
+        c.strokeStyle = "#0080ff22";
+        c.lineWidth = 0.5;
+        for (var i = 0; i < world.boids.length; i++) {
+                var boid = world.boids[i];
+                var nearby = filterNearby(world.boids, boid, BOID_VICINITY);
+                for (var j = 0; j < nearby.length; j++) {
+                        c.beginPath();
+                        c.moveTo(boid.pos.x, boid.pos.y);
+                        c.lineTo(nearby[j].pos.x, nearby[j].pos.y);
+                        c.stroke();
+                }
+        }
         
         //draw boids
         for (var i = 0; i < world.boids.length; i++) {
