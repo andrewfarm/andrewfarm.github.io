@@ -3,7 +3,7 @@ const INTERVAL = 1 / FPS;
 
 const BOID_VICINITY = 75;
 
-const SEPARATION_SCALE = 2;
+const SEPARATION_SCALE = 50;
 const SEPARATION_DISTANCE = 25;
 const SEPARATION_DISTANCE_SQUARED = SEPARATION_DISTANCE * SEPARATION_DISTANCE;
 const ALIGNMENT_SCALE = 50;
@@ -15,6 +15,9 @@ const MAX_SPEED = 75;
 const MAX_SPEED_SQUARED = MAX_SPEED * MAX_SPEED;
 
 const HEAD_RADIUS_TO_LENGTH_RATIO = 0.15;
+
+const DRAW_BOIDS = true;
+const DRAW_CONNECTIONS = false;
 
 var mousePos;
 
@@ -72,48 +75,52 @@ function render(world, c) {
         //clear screen
         c.clearRect(0, 0, c.canvas.clientWidth, c.canvas.clientHeight);
         
-        //experimental: draw lines between nearby boids
-        c.strokeStyle = "#0080ff22";
-        c.lineWidth = 0.5;
-        for (var i = 0; i < world.boids.length; i++) {
-                var boid = world.boids[i];
-                var nearby = filterNearby(world.boids, boid, BOID_VICINITY);
-                for (var j = 0; j < nearby.length; j++) {
-                        c.beginPath();
-                        c.moveTo(boid.pos.x, boid.pos.y);
-                        c.lineTo(nearby[j].pos.x, nearby[j].pos.y);
-                        c.stroke();
+        if (DRAW_CONNECTIONS) {
+                //experimental: draw lines between nearby boids
+                c.strokeStyle = "#0080ff22";
+                c.lineWidth = 0.5;
+                for (var i = 0; i < world.boids.length; i++) {
+                        var boid = world.boids[i];
+                        var nearby = filterNearby(world.boids, boid, BOID_VICINITY);
+                        for (var j = 0; j < nearby.length; j++) {
+                                c.beginPath();
+                                c.moveTo(boid.pos.x, boid.pos.y);
+                                c.lineTo(nearby[j].pos.x, nearby[j].pos.y);
+                                c.stroke();
+                        }
                 }
         }
         
-        //draw boids
-        for (var i = 0; i < world.boids.length; i++) {
-                var boid = world.boids[i];
-                var r = HEAD_RADIUS_TO_LENGTH_RATIO * boid.size;
-                
-                c.save();
-                c.translate(boid.pos.x, boid.pos.y);
-                c.rotate(Math.atan2(boid.vel.y, boid.vel.x));
-                c.fillStyle = boid.color;
-                
-                //draw head
-                c.beginPath();
-                c.arc(0, 0, r, 0, 2 * Math.PI);
-                c.fill();
-                
-                //draw tail
-                var tailSize = boid.size - r;
-                var dx = -r * r / tailSize;
-                var dy = r * Math.sqrt((tailSize * tailSize) - (r * r)) / tailSize;
-                c.beginPath();
-                c.moveTo(-tailSize, 0);
-                c.lineTo(dx, -dy);
-                c.lineTo(dx, dy);
-                c.closePath();
-                c.fill();
-                
-                //reset transform
-                c.restore();
+        if (DRAW_BOIDS) {
+                //draw boids
+                for (var i = 0; i < world.boids.length; i++) {
+                        var boid = world.boids[i];
+                        var r = HEAD_RADIUS_TO_LENGTH_RATIO * boid.size;
+                        
+                        c.save();
+                        c.translate(boid.pos.x, boid.pos.y);
+                        c.rotate(Math.atan2(boid.vel.y, boid.vel.x));
+                        c.fillStyle = boid.color;
+                        
+                        //draw head
+                        c.beginPath();
+                        c.arc(0, 0, r, 0, 2 * Math.PI);
+                        c.fill();
+                        
+                        //draw tail
+                        var tailSize = boid.size - r;
+                        var dx = -r * r / tailSize;
+                        var dy = r * Math.sqrt((tailSize * tailSize) - (r * r)) / tailSize;
+                        c.beginPath();
+                        c.moveTo(-tailSize, 0);
+                        c.lineTo(dx, -dy);
+                        c.lineTo(dx, dy);
+                        c.closePath();
+                        c.fill();
+                        
+                        //reset transform
+                        c.restore();
+                }
         }
 }
 
@@ -162,9 +169,10 @@ function separate(nearby, b) {
         for (var i = 0; i < nearby.length; i++) {
                 var between = b.pos.minus(nearby[i].pos);
                 if (between.lengthSquared() < SEPARATION_DISTANCE_SQUARED) {
-                        b.vel = b.vel.plus(between.normalized().scaled(SEPARATION_SCALE));
+                        acc = acc.plus(between.normalized());
                 }
         }
+        acc = acc.scaled(SEPARATION_SCALE);
         return acc;
 }
 
@@ -182,6 +190,10 @@ function align(nearby, b) {
 //Boids rule 3: cohesion - tend toward local center of flockmates
 //Returns an acceleration Vector
 function cohere(nearby, b) {
+        if (nearby.length == 0) {
+                return new Vector();
+        }
+        
         var center = new Vector();
         for (var i = 0; i < nearby.length; i++) {
                 center = center.plus(nearby[i].pos);
