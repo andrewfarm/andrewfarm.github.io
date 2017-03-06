@@ -237,6 +237,18 @@ function clampSpeed(boid) {
         }
 }
 
+function rgbToHex(r, g, b) {
+        var rgb = 0x1000000 | b | (g << 8) | (r << 16);
+        return '#' + rgb.toString(16).substring(1);
+}
+
+function normRgbToHex(r, g, b) {
+        var red   = Math.min(Math.max(Math.floor(r * 256), 0), 255);
+        var green = Math.min(Math.max(Math.floor(g * 256), 0), 255);
+        var blue  = Math.min(Math.max(Math.floor(b * 256), 0), 255);
+        return rgbToHex(red, green, blue);
+}
+
 //Constructor function for World class
 function World(width, height, numBoids) {
         this.width = width;
@@ -250,9 +262,11 @@ World.prototype.initBoids = function(numBoids) {
         this.boids = [];
         for (var i = 0; i < numBoids; i++) {
                 var size = 20;
-                var color = "#000000";
-                var pos = new Vector(Math.random() * this.width,
-                                     Math.random() * this.height);
+                var xNorm = Math.random();
+                var yNorm = Math.random();
+                var color = normRgbToHex(0, (xNorm + yNorm) / Math.sqrt(2), 1);
+                var pos = new Vector(xNorm * this.width,
+                                     yNorm * this.height);
                 var newBoid = new Boid(size, color, pos);
                 this.boids.push(newBoid);
         }
