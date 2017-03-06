@@ -1,14 +1,22 @@
+const FPS = 60;
+const INTERVAL = 1 / FPS;
+
 const BOID_VICINITY = 200;
 
-const SEPARATION_SCALE = 1;
+const SEPARATION_SCALE = 2;
 const SEPARATION_DISTANCE = 25;
 const SEPARATION_DISTANCE_SQUARED = SEPARATION_DISTANCE * SEPARATION_DISTANCE;
-const ALIGNMENT_SCALE = 0.1;
-const COHESION_SCALE = 0.1;
-const BOUNDING_SCALE = 1;
+const ALIGNMENT_SCALE = 50;
+const COHESION_SCALE = 20;
+const AVOIDANCE_SCALE = 1000000;
+const BOUNDING_SCALE = 100;
 
-const MAX_SPEED = 5;
+const MAX_SPEED = 100;
 const MAX_SPEED_SQUARED = MAX_SPEED * MAX_SPEED;
+
+const HEAD_RADIUS_TO_LENGTH_RATIO = 0.15;
+
+var mousePos;
 
 // Detects HiDPI (retina) displays
 // from https://coderwall.com/p/q2z2uw/detect-hidpi-retina-displays-in-javascript
@@ -28,32 +36,35 @@ function start() {
         //get canvas element
         var canvas = document.getElementById("canvas");
         
+        canvas.addEventListener('mousemove', function(event) {
+                mousePos = new Vector(event.clientX, event.clientY);
+        }, false);
+        
         //get drawable context
         var c = canvas.getContext("2d");
         
         //make fullscreen
         canvas.style.width = window.innerWidth + "px";
         canvas.style.height = window.innerHeight + "px";
-        
-        //retina display compatibility
         if (isRetina()) {
+                //retina display compatibility
                 canvas.width = window.innerWidth * 2;
                 canvas.height = window.innerHeight * 2;
-                c.scale(2, 2);
+                canvas.getContext("2d").scale(2, 2);
         } else {
                 canvas.width = window.innerWidth;
                 canvas.width = window.innerHeight;
         }
         
         //create simulation
-        var world = new World(window.innerWidth, window.innerHeight, 100);
+        var world = new World(window.innerWidth, window.innerHeight, 200);
         render(world, c);
         
         //run simulation
         window.setInterval(function() {
                 render(world, c);
                 step(world);
-        }, 50);
+        }, INTERVAL);
 }
 
 //Renders to the canvas
@@ -64,10 +75,31 @@ function render(world, c) {
         //draw boids
         for (var i = 0; i < world.boids.length; i++) {
                 var boid = world.boids[i];
+                var r = HEAD_RADIUS_TO_LENGTH_RATIO * boid.size;
+                
+                c.save();
+                c.translate(boid.pos.x, boid.pos.y);
+                c.rotate(Math.atan2(boid.vel.y, boid.vel.x));
                 c.fillStyle = boid.color;
+                
+                //draw head
                 c.beginPath();
-                c.arc(boid.pos.x, boid.pos.y, boid.size / 2, 0, 2 * Math.PI);
+                c.arc(0, 0, r, 0, 2 * Math.PI);
                 c.fill();
+                
+                //draw tail
+                var tailSize = boid.size - r;
+                var dx = -r * r / tailSize;
+                var dy = r * Math.sqrt((tailSize * tailSize) - (r * r)) / tailSize;
+                c.beginPath();
+                c.moveTo(-tailSize, 0);
+                c.lineTo(dx, -dy);
+                c.lineTo(dx, dy);
+                c.closePath();
+                c.fill();
+                
+                //reset transform
+                c.restore();
         }
 }
 
@@ -81,8 +113,9 @@ function step(world) {
                 var acc = separate(nearby, boid)
                         .plus(align(nearby, boid))
                         .plus(cohere(nearby, boid))
+                        .plus(avoid(mousePos, boid))
                         .plus(bound(world, boid));
-                boid.vel = boid.vel.plus(acc);
+                boid.vel = boid.vel.plus(acc.scaled(INTERVAL));
                 //limit speed
                 clampSpeed(boid);
         }
@@ -90,7 +123,7 @@ function step(world) {
         //move boids
         for (var i = 0; i < world.boids.length; i++) {
                 var boid = world.boids[i];
-                boid.pos = boid.pos.plus(boid.vel);
+                boid.pos = boid.pos.plus(boid.vel.scaled(INTERVAL));
         }
 }
 
@@ -144,6 +177,16 @@ function cohere(nearby, b) {
         return acc;
 }
 
+//Make boids tend away from a point
+//Returns an acceleration vector
+function avoid(point, boid) {
+        if (point) {
+                var dist = boid.pos.minus(point);
+                return dist.scaled(AVOIDANCE_SCALE / (dist.length() * dist.lengthSquared()));
+        }
+        return new Vector();
+}
+
 //If boids are off an edge, guide them back
 //Returns an acceleration vector
 function bound(world, boid) {
@@ -180,7 +223,7 @@ function World(width, height, numBoids) {
 World.prototype.initBoids = function(numBoids) {
         this.boids = [];
         for (var i = 0; i < numBoids; i++) {
-                var size = 5;
+                var size = 20;
                 var color = "#000000";
                 var pos = new Vector(Math.random() * this.width,
                                      Math.random() * this.height);
