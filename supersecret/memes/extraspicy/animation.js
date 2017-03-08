@@ -34,7 +34,6 @@ function start() {
         
         //animate
         window.setInterval(function() {
-                           /*
                 //adjust hue
                 bghue = (bghue + 20) % 360;
                 var bgHSV = {
@@ -51,7 +50,6 @@ function start() {
                 var textcolor = Color(textHSV).toString();
                 body.style.backgroundColor = bgcolor;
                 text.style.color = textcolor;
-                            */
                 
                 //animate floaties
                 for (var i = 0; i < floatiesdiv.children.length; i++) {
@@ -90,7 +88,7 @@ function start() {
                 var x = window.innerWidth;
                 var y = Math.random() * window.innerHeight;
                 var newFloaty = document.createElement("img");
-                newFloaty.src = "0.png";
+                newFloaty.src = "Ian.png";
                 newFloaty.style.position = "absolute";
                 newFloaty.style.width = floatyWidth + "px";
                 newFloaty.style.left = x + "px";
