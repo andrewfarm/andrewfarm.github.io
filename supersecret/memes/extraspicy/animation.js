@@ -88,7 +88,7 @@ function start() {
                 var x = window.innerWidth;
                 var y = Math.random() * window.innerHeight;
                 var newFloaty = document.createElement("img");
-                newFloaty.src = "Ian.png";
+                newFloaty.src = "enroo.png";
                 newFloaty.style.position = "absolute";
                 newFloaty.style.width = floatyWidth + "px";
                 newFloaty.style.left = x + "px";
