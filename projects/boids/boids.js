@@ -17,7 +17,7 @@ const MAX_SPEED_SQUARED = MAX_SPEED * MAX_SPEED;
 const HEAD_RADIUS_TO_LENGTH_RATIO = 0.15;
 
 const DRAW_BOIDS = true;
-const DRAW_CONNECTIONS = true;
+const DRAW_CONNECTIONS = false;
 
 var mousePos;
 
