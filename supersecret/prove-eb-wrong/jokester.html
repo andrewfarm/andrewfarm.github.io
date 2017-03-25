@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Prove eb wrong</title>
+                <style>
+                        @font-face {
+                                font-family: Chocolate Bar;
+                                src: url('chocolate-bar-demo/Chocolate Bar Demo.otf');
+                        }
+                
+                        body {
+                                overflow: hidden;
+                        }
+                
+                        body * {
+                                font: 36pt Chocolate Bar, sans-serif;
+                        }
+                
+                        body div {
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                        }
+                </style>
+        </head>
+        <body>
+                <div>
+                        <p id="q"></p>
+                        <button type="button" id="showanswer">Click here to find out!</button>
+                        <p id="a"></p>
+                        <button type="button" id="newjoke">New joke</button>
+                </div>
+                <script src="jquery-3.1.0.min.js"></script>
+                <script type="text/javascript">
+                        var questions = [
+                                'What is the stupidest animal in the jungle?',
+                                'What\'s the difference between a dirty bus stop and a lobster with breast implants?',
+                                'What kind of bagel can fly?',
+                                'A toothless termite walks into a bar and asked--',
+                                'Where did Mary go after the explosion?',
+                                'What did Hitler\'s cat think of the genocide?',
+                                'What was a more important invention than the first telephone?',
+                                'What if the only animal in an entire zoo were a dog?'
+                        ];
+                        var answers = [
+                                'The polar bear!',
+                                'One is a crusty bus station, and the other is a busty crustacean',
+                                'A plain bagel!',
+                                'Is the bar tender here?',
+                                'Everywhere!',
+                                'He thought it was purr-fect!',
+                                'The second one!',
+                                'It would be a shitzhu'
+                        ];
+                        function update() {
+                                var currJoke = Math.floor(Math.random() * questions.length);
+                                $('#q').html(questions[currJoke]);
+                                $('#a').html(answers[currJoke]);
+                        }
+                        function show() {
+                                $('#a').show();
+                                $('#newjoke').show();
+                        }
+                        function hide() {
+                                $('#a').hide();
+                                $('#newjoke').hide();
+                        }
+                        
+                        $(document).ready(start);
+                        function start() {
+                                hide();
+                                update();
+                                $('#showanswer').click(function() {
+                                        show();
+                                });
+                                $('#newjoke').click(function() {
+                                        hide();
+                                        update();
+                                });
+                        }
+                </script>
+        </body>
+</html>
