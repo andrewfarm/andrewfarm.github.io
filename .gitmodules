@@ -1,0 +1,3 @@
+[submodule "macrocosmos"]
+	path = macrocosmos
+	url = https://github.com/andrewfarm/macrocosmos
