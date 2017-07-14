@@ -3,7 +3,7 @@
 /* General styles */
 
 :root {
-        --vermillion: #ff4400;
+        --theme: #ff4400;
 }
 
 body {
@@ -16,7 +16,7 @@ body {
 }
 
 .color {
-        color: var(--vermillion);
+        color: var(--theme);
 }
 
 h1 {
@@ -25,7 +25,7 @@ h1 {
 
 h2 {
         font-size: 30pt;
-        color: var(--vermillion);
+        color: var(--theme);
 }
 
 h6 {
@@ -37,7 +37,7 @@ p {
 }
 
 a {
-        color: var(--vermillion);
+        color: var(--theme);
         text-decoration: none;
 }
 
@@ -52,6 +52,10 @@ a:hover {
 
 h1 a:hover {
         text-decoration: none;
+}
+
+div .center {
+        margin: auto;
 }
 
 .nav {
@@ -90,7 +94,7 @@ h1 a:hover {
 .anim-underline:hover:after {
         position: relative;
         width: 100%;
-        background-color: var(--vermillion);
+        background-color: var(--theme);
 }
 
 .anim-underline.black-underline:hover:after {
@@ -99,7 +103,7 @@ h1 a:hover {
         background-color: #000;
 }
 
-.anim-underline.white-underline:hover:after, .orange .anim-underline:hover:after {
+.anim-underline.white-underline:hover:after, .themecolor .anim-underline:hover:after {
         position: relative;
         width: 100%;
         background-color: #fff;
@@ -110,8 +114,8 @@ ul {
         list-style: none;
 }
 
-.orange {
-        background: var(--vermillion);
+.themecolor {
+        background: var(--theme);
         color: #000;
 }
 
@@ -122,14 +126,27 @@ ul {
 
 .white {
         background: #fff;
-        color: var(--vermillion);
+        color: var(--theme);
 }
 
-.orange a {
+.themecolor a {
         color: #fff;
 }
 
 /* Special styles */
+
+#about {
+        position: relative;
+}
+
+.about-text {
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+}
 
 .projects {
         margin: auto;
@@ -157,41 +174,6 @@ ul {
         width: 100%;
         margin: 0;
 }
-
-/*.projects div {*/
-/*        width: 290px;*/
-/*        height: 200px;*/
-/*        background: var(--vermillion);*/
-/*        background-size: auto 100%;*/
-/*        background-position: center;*/
-/*        margin: 10px;*/
-/*        border: 2px solid #ccc;*/
-/*        border-radius: 10px;*/
-/*        display: inline-block;*/
-/*        float: left;*/
-/*        overflow: hidden;*/
-/*        transition: background-size 0.33s*/
-/*}*/
-/**/
-/*.projects div:hover {*/
-/*        background-size: auto 105%;*/
-/*}*/
-/**/
-/*.projects div h6 {*/
-/*        position: relative;*/
-/*        right: -100%;*/
-/*        margin: 0px;*/
-/*        padding: 5px 10px 5px 10px;*/
-/*        text-align: right;*/
-/*        float: right;*/
-/*        background-color: #fff;*/
-/*        opacity: 0.7;*/
-/*        transition: 0.5s;*/
-/*}*/
-/**/
-/*.projects div:hover h6 {*/
-/*        right: 0;*/
-/*}*/
 
 .fullwidth {
         width: 100%;
@@ -227,15 +209,72 @@ ul {
 
 #project-descriptions > div p:last-of-type {margin-bottom: 0;}
 
-/*.bg-developer {*/
-/*        opacity: 0.5;*/
-/*        background-image: url('https://static.pexels.com/photos/70232/pexels-photo-70232.jpeg');*/
-/*}*/
-/**/
-/*.bg-photographer {*/
-/*        opacity: 0.5;*/
-/*        background-image: url('images/Acacia Bunch.jpg/');*/
-/*}*/
+.shape {
+        margin: 3em;
+        display: inline-block;
+        transition: transform 0.3s ease;
+}
+
+.shape:hover {
+        transform: translate(0px, -20px);
+}
+
+.triangle {
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid var(--theme);
+}
+
+.square {
+        width: 100px;
+        height: 100px;
+        background: var(--theme);
+}
+
+.hexagon {
+        top: -25px;
+        width: 86px;
+        height: 50px;
+        background: var(--theme);
+        position: relative;
+}
+
+.hexagon:before {
+        content: "";
+        position: absolute;
+        top: -25px;
+        left: 0;
+        width: 0px;
+        height: 0px;
+        border-left: 43px solid transparent;
+        border-right: 43px solid transparent;
+        border-top; 0px;
+        border-bottom: 25px solid var(--theme);
+}
+
+.hexagon:after {
+        content: "";
+        position: absolute;
+        bottom: -25px;
+        left: 0;
+        width: 0px;
+        height: 0px;
+        border-left: 43px solid transparent;
+        border-right: 43px solid transparent;
+        border-top: 25px solid var(--theme);
+        border-bottom: 0px;
+}
+
+.circle {
+        width: 100px;
+        height: 100px;
+        background: var(--theme);
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+}
 
 /* Landing page transition */
 
@@ -250,7 +289,7 @@ ul {
         width: 24pt;
         height: 26pt;
         border-radius: 100%;
-        background-color: var(--vermillion);
+        background-color: var(--theme);
         opacity: 0;
 }
 

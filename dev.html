@@ -6,13 +6,29 @@
         </head>
         <body>
                 <h1 class="site-title"><a href="index.html">andrew <span class="color">o</span>. farm</a></h1>
-                <div style="width: 75%; height: 1px; margin: auto; background-color: #ff4400"></div>
+                <div class="color" style="width: 75%; height: 1px; margin: auto;"></div>
                 <div>
                         <h2>About</h2>
-                        <p>My name is Andrew Farm. I grew up in Maine, where I discovered my love of computer scieblah blah blah. Let's get to the good parts.</p>
-                        <p>I'm currently in university, majoring in CS and minoring in being an unmotivated blob (prospective employers please read: a hardworking and enthusiastic job candidate).</p>
-                        <p>Like most people (although they wouldn't admit it), I'm making this up as I go along. Having a professional website seems like a developer-y thing to do. Did you see the transition from the landing page to this development page? Yeah, that's right. Niiiice and developer-y. There are some <a href="photography.html"><span class="anim-underline">pretty pictures</span></a> I've taken over the years as well, so check those out too. Or don't. I haven't figured out yet how to force my website visitors to appreciate my work. (Maybe python?)</p>
-                        <p>On the off-chance that you want to know something useful about me and what I do, maybe you'd be interested in some of my past <a class="anim-underline" href="#project-demos">projects</a> and my <a class="anim-underline" href="#resume">r&eacute;sum&eacute;.</p>
+                        <div id="about">
+                                <div class="about-text" id="about-triangle">
+                                        <p>My name is Andrew O Farm. I grew up and live in Portland, Maine. I am a software developer, both professional and enthusiast.</p>
+                                </div>
+                                <div class="about-text" id="about-square">
+                                        <p>I have been coding since the age of five. That's not true, but i'd like you to believe that it is.</p>
+                                </div>
+                                <div class="about-text" id="about-hexagon">
+                                        <p>I'm currently in university, majoring in computer science and minoring in being a lazy blob (prospective employers please read: a hardworking and enthusiastic job candidate).</p>
+                                </div>
+                                <div class="about-text" id="about-circle">
+                                        <p>I'm especially interested in computer graphics and artificial intelligence. There are some photographs I've taken over the years as well, so check those out too. Or don't. I haven't figured out yet how to force my website visitors to appreciate my work. (Maybe Python?)</p>
+                                </div>
+                        </div>
+                        <div class="center" style="margin-top: 6em;">
+                                <div class="shape triangle"></div>
+                                <div class="shape square"></div>
+                                <div class="shape hexagon"></div>
+                                <div class="shape circle"></div>
+                        </div>
                 </div>
                 <div id="resume">
                         <h2>R&eacute;sum&eacute;</h2>
@@ -21,7 +37,6 @@
                 </div>
                 <div>
                         <h2>Skills</h2>
-                        <!--TODO flesh out / redesign skills section AND move to resume page-->
                         <ul>
                                 <li>Java</li>
                                 <li>C++</li>
@@ -84,7 +99,7 @@
                                 <h3 class="project-logo" style="font-family: Catalina Script">galaxies</h3>
                                 <p>A real-time simulation of tens of thousands of stars, forming galaxies that swirl and collide majestically in 3D.</p>
                         </div>
-                        <div class="fullwidth orange" id="boids">
+                        <div class="fullwidth themecolor" id="boids">
                                 <img src="images/projects/boids.png"/>
                                 <h3 class="project-logo" style="font-family: Typo Round">boids</h3>
                                 <p>A real-time simulation of fish-like creatures schooling. An immersive, yet minimalistic world of predator and prey, interactive plants, and realistic behavior based on the original <a href="https://en.wikipedia.org/wiki/Boids" target="_blank"><span class="anim-underline">Boids</span></a> algorithm by Craig Reynolds.</p>
@@ -100,7 +115,7 @@
                                 <h3 class="project-logo">electrocity</h3>
                                 <p>A real-time simulation (god, another one?) of electrically charged objects interacting. This was the first physical simulation I wrote, and comes with visual features such as field lines (shown here), field-tracing particles and color map.</p>
                         </div>
-                        <div class="fullwidth orange" id="zen">
+                        <div class="fullwidth themecolor" id="zen">
                                 <img src="images/projects/zen.png"/>
                                 <h3 class="project-logo">Zen Physics</h3>
                                 <p>Balls. Bouncing betwixt boundaries. Making mellow music, necessitating nice noises. 'Nuff said.</p>
@@ -117,7 +132,7 @@
                                 <p>Fractals!</p>
                                 <p style="font-size: 16pt"><a href="https://en.wikipedia.org/wiki/L-system" target="_blank"><span class="anim-underline">https://en.wikipedia.org/wiki/L-system</span></a></p>
                         </div>
-                        <div class="fullwidth orange" id="mandelbrot">
+                        <div class="fullwidth themecolor" id="mandelbrot">
                                 <img src="images/projects/mandelbrot.png"/>
                                 <img src="images/projects/mandelbrot-detail-1.png"/>
                                 <img src="images/projects/mandelbrot-detail-2.png"/>
@@ -138,6 +153,6 @@
                         </div>
                 </div>
                 <script src="jquery-3.1.0.min.js"></script>
-                <script src="dev-edge.js"></script>
+                <script src="dev-about.js"></script>
         </body>
 </html>
