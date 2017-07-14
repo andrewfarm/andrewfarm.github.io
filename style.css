@@ -19,6 +19,10 @@ body {
         color: var(--theme);
 }
 
+div.color {
+        background: var(--theme);
+}
+
 h1 {
         font-size: 48pt;
 }
@@ -52,10 +56,6 @@ a:hover {
 
 h1 a:hover {
         text-decoration: none;
-}
-
-div .center {
-        margin: auto;
 }
 
 .nav {
