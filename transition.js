@@ -42,9 +42,13 @@ function transition(duration) {
          {duration: duration, queue: true}
         );
         
-       $.easing.drop = function(x,t,b,c,d) {
-               return x * x;
-       };
+        $.easing.drop = function(x,t,b,c,d) {
+                return x * x;
+        };
+        
+        $.easing.spread = function(x,t,b,c,d) {
+                return 1 - (1 - x) * (1 - x);
+        }
         
         $a.animate
         (
@@ -62,7 +66,8 @@ function transition(duration) {
                 $c.animate
                 (
                  {opacity: 1, width: "200px", left: "-=100px"},
-                 {duration: 500, queue: false}
+                 {duration: 500, easing: "spread", queue: false},
+                 "spread"
                 );
                 $b.css("top", aOffset.top + 20);
                 $b.css("left", aOffset.left - 350);
