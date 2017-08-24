@@ -1,32 +1,16 @@
-var href;
-
 var init = function() {
         var duration = 640;
         
-        $("#menuitem-developer").click
+        $(".nav").click
         (
-         function() {
-                transition(duration);
-                href = "dev/index.html";
-         }
-        );
-        $("#menuitem-composer").click
-        (
-         function() {
-         transition(duration);
-         href = "music/index.html";
-         }
-         );
-        $("#menuitem-photographer").click
-        (
-         function() {
-                transition(duration);
-                href = "photography/index.html";
+         function(event) {
+                event.preventDefault();
+                transition(duration, $(event.target).attr("href"));
          }
         );
 }
 
-function transition(duration) {
+function transition(duration, href) {
         var $a = $("#abovewater");
         var $b = $("#belowwater");
         var $c = $("#surface");
@@ -79,10 +63,10 @@ function transition(duration) {
         setTimeout
         (
          function() {
-                $("*").fadeOut(2000);
+                $("body").fadeOut(2000);
          
                 //redirect
-                $("*").promise().done
+                $("body").promise().done
                 (
                  function () {
                  document.location.href = href;

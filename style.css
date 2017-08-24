@@ -60,7 +60,6 @@ h1 a:hover {
 
 .nav {
         position: relative;
-        display: inline-block;
         font-size: 30;
         text-decoration: none;
         color: #000;
@@ -112,6 +111,10 @@ h1 a:hover {
 ul {
         padding: 0;
         list-style: none;
+}
+
+.horizontal li {
+        display: inline-block;
 }
 
 .themecolor {
