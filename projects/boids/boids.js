@@ -16,8 +16,8 @@ const MAX_SPEED_SQUARED = MAX_SPEED * MAX_SPEED;
 
 const HEAD_RADIUS_TO_LENGTH_RATIO = 0.15;
 
-const DRAW_BOIDS = true;
-const DRAW_CONNECTIONS = false;
+var drawBoids = true;
+var drawConnections = false;
 
 var mousePos;
 
@@ -75,7 +75,7 @@ function render(world, c) {
         //clear screen
         c.clearRect(0, 0, c.canvas.clientWidth, c.canvas.clientHeight);
         
-        if (DRAW_CONNECTIONS) {
+        if (drawConnections) {
                 //experimental: draw lines between nearby boids
                 c.strokeStyle = "#0080ff22";
                 c.lineWidth = 0.5;
@@ -91,7 +91,7 @@ function render(world, c) {
                 }
         }
         
-        if (DRAW_BOIDS) {
+        if (drawBoids) {
                 //draw boids
                 for (var i = 0; i < world.boids.length; i++) {
                         var boid = world.boids[i];
@@ -278,4 +278,13 @@ function Boid(size, color, pos) {
         this.color = color;
         this.pos = pos;
         this.vel = new Vector();
+}
+
+document.onkeypress = function(e) {
+    var keyCode = e.which;
+    if (keyCode == 49) { // '1'
+        drawBoids = !drawBoids;
+    } else if (keyCode == 50) { // '2'
+        drawConnections = !drawConnections;
+    }
 }
