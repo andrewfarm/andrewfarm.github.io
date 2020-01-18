@@ -126,7 +126,7 @@ a {
     overflow: hidden;
 }
 
-.projects li div {
+.projects li>a>div {
     width: 100%;
     height: 100%;
 }
@@ -136,33 +136,63 @@ a {
     background-position: center;
     background-repeat: no-repeat;
     background-size: 165%;
+    background-color: black;
     transition: 0.2s ease;
 }
 
 .projects li:hover .project-thumbnail {
     filter: blur(14px);
     -webkit-filter: blur(14px);
-    background-size: 148%;
+    background-size: 140%;
 }
 
 .overlay {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0);
     color: white;
     position: absolute;
     top: 0;
     left: 0;
-    opacity: 0;
-    transition: 0.2s ease;
+    transition: background-color 0.2s ease;
 }
 
 .projects li:hover .overlay {
-    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-.overlay h6 {
+.overlay .desc {
     margin: 0;
+    width: 75%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+/*    transform: translateY(-50%);*/
+}
+
+.overlay h6 {
+    margin-top: 0pt;
+    margin-bottom: 36pt;
+    opacity: 0;
+    transform: translate(0em, 1em);
+    transition: 0.2s ease 0.1s;
+}
+
+.projects li:hover .overlay h6 {
+    opacity: 1;
+    transform: translate(0em, 0em);
+    transition: 0.2s ease;
+}
+
+.overlay p {
+    margin-bottom: 0pt;
+    font-size: 10pt;
+    opacity: 0;
+    transform: translate(0em, 1em);
+    transition: 0.2s ease;
+}
+
+.projects li:hover .overlay p {
+    opacity: 1;
+    transform: translate(0em, 0em);
+    transition: 0.2s ease 0.1s;
 }
