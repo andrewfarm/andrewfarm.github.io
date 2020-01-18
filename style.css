@@ -135,14 +135,14 @@ a {
     margin: 0;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 200%;
+    background-size: 165%;
     transition: 0.2s ease;
 }
 
 .projects li:hover .project-thumbnail {
     filter: blur(14px);
     -webkit-filter: blur(14px);
-    background-size: 180%;
+    background-size: 148%;
 }
 
 .overlay {
